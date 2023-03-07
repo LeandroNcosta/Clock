@@ -6,7 +6,7 @@ Relógio digital desenvolvido com JavaScript. <br/>
 <br>
 
 <p align="center">
-  <img alt="projeto relogio src="./src/favicon/clock.png" width="100%">
+  <img alt="projeto relogio" src="./src/favicon/clock.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
