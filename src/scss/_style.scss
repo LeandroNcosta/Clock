@@ -1,0 +1,280 @@
+body {
+    position: relative;
+    background: #1b1b1b;
+    height: 947px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    main {
+        height: 40rem;
+        width: 40rem;
+        border-radius: 50%;
+        background: #f6f5f5;
+        box-shadow: 4px 0px 10px #bebebe, -5px -5px 10px #000000;
+        border: 2rem groove #620909;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -8rem;
+            width: 800px;
+            border: 5px solid rgb(44, 42, 42);
+            border-radius: 30% 30% 3rem 3rem;
+            min-height: 850px;
+            background: #0a0a0a;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            z-index: -1;
+        }
+        .number {
+            width: 100%;
+            height: 100%;
+            font-size: 1.7rem;
+            font-weight: 700;
+            position: absolute;
+            text-align: center;
+            border-radius: 50%;
+            text-decoration: overline;
+            padding-top: 1rem;
+        }
+        .mark-center {
+            height: 2rem;
+            width: 2rem;
+            background: #620909;
+            border-radius: 50%;
+            position: relative;
+            border: 0.3rem solid #000;
+            box-shadow: -1px -3px 6px 0px rgba(0, 0, 0, 0.99);
+            z-index: 10;
+            &::after {
+                content: "Clock";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                font-family: "Dancing Script", sans-serif;
+                display: flex;
+                justify-content: center;
+                top: -100px;
+                font-size: 4rem;
+            }
+        }
+        /* Ponteiros */
+        .second-hand {
+            height: 45%;
+            background: #000;
+            width: 0.2rem;
+            border-radius: 50%;
+            position: absolute;
+            transform-origin: bottom center;
+            transform: translate(0, -50%);
+            z-index: 1;
+            box-shadow: -1px -3px 6px 0px rgba(0, 0, 0, 0.99);
+        }
+        .minute-hand {
+            height: 45%;
+            background: #000;
+            width: 0.6rem;
+            border-radius: 50%;
+            position: absolute;
+            transform-origin: bottom center;
+            transform: translate(0, -50%) /*rotate(30deg)*/;
+            z-index: 2;
+            box-shadow: -1px -3px 6px 0px rgba(0, 0, 0, 0.99);
+        }
+        .hour-hand {
+            height: 25%;
+            background: #000;
+            width: 1.3rem;
+            border-radius: 50%;
+            position: absolute;
+            transform-origin: bottom center;
+            transform: translate(0, -50%);
+            z-index: 3;
+            box-shadow: -1px -3px 6px 0px rgba(0, 0, 0, 0.99);
+        }
+        //
+        .clock-container {
+            position: absolute;
+            bottom: 20%;
+            z-index: 0;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #fff;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+            box-shadow: 0px 1px 3px 10px #620909;
+            border-radius: 0.7rem;
+            background-color: #0a0a0a;
+            padding: 0.3rem 1rem;
+            span {
+                font-family: "Clock";
+                color: #fff;
+                font-size: 2.5rem;
+                font-weight: bolder;
+                line-height: 150%;
+                letter-spacing: 0.3rem;
+            }
+        }
+        .hour-progress {
+            position: absolute;
+            top: -130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #bebebe;
+            font-size: 1.3rem;
+            label {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+            #full-hour {
+                height: 1rem;
+                width: 13rem;
+                background: transparent;
+                display: flex;
+                align-items: center;
+                border-radius: 5rem;
+                box-shadow: 2px 2px 6px #bebebe, -2px -2px 6px #ffffff;
+                margin-bottom: 0.6rem;
+            }
+            span.percent {
+                text-shadow: 2px 2px 4px #000;
+            }
+        }
+        .left {
+            background: #0a0a0a;
+            height: 10rem;
+            width: 15rem;
+            position: absolute;
+            bottom: -180px;
+            left: -50px;
+            border-radius: 1rem;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            z-index: -2;
+            border: 5px solid rgb(44, 42, 42);
+        }
+        .right {
+            background: #0a0a0a;
+            height: 10rem;
+            width: 15rem;
+            position: absolute;
+            bottom: -180px;
+            right: -50px;
+            border-radius: 1rem;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            border: 5px solid rgb(44, 42, 42);
+            z-index: -2;
+        }
+    }
+}
+
+//Tag progress
+#full-hour::-webkit-progress-value {
+    background: -webkit-linear-gradient(
+        left,
+        #000 0%,
+        #620909 100%
+    ); /* Chrome10+,Safari5.1+ */
+    border-radius: 5rem 0 0 5rem;
+}
+#full-hour[value]::-webkit-progress-bar {
+    background: #bebebe;
+    border-radius: 5rem;
+    z-index: 50;
+}
+
+//Media
+
+@media (max-width: 991px) {
+    main.clock {
+        width: 27rem;
+        height: 45%;
+        &::before {
+            width: 600px;
+            min-height: 650px;
+        }
+        .mark-center {
+            &::after {
+                top: -70px;
+                font-size: 3rem;
+            }
+        }
+        .clock-container {
+            padding: 0.5rem 0.5rem;
+            font-size: 1.5rem;
+            bottom: 25%;
+            span {
+                font-size: 1.7rem;
+                line-height: 100%;
+            }
+        }
+        .left {
+            height: 8rem;
+            width: 10rem;
+        }
+        .right {
+            height: 8rem;
+            width: 10rem;
+        }
+    }
+}
+@media (max-width: 669px) {
+    main.clock {
+        width: 25rem;
+        height: 42%;
+        &::before {
+            width: 500px;
+            min-height: 550px;
+        }
+        .hour-progress {
+            display: none;
+        }
+    }
+}
+@media (max-width: 560px) {
+    body {
+        background: #0a0a0a;
+        justify-content: flex-start;
+    }
+    main.clock {
+        width: 20rem;
+        height: 35%;
+        &::before {
+            display: none;
+        }
+        .right,
+        .left {
+            display: none;
+        }
+        .mark-center {
+            &::after {
+                top: -50px;
+                font-size: 2rem;
+            }
+        }
+        .clock-container {
+            padding: 0.5rem 0.5rem;
+            font-size: 2.5rem;
+            bottom: -50%;
+            box-shadow: 0px 1px 3px 5px #620909;
+            padding: 0.3rem 1rem;
+            span {
+                font-size: 2.5rem;
+                line-height: 150%;
+                letter-spacing: 0.3rem;
+            }
+        }
+    }
+}
